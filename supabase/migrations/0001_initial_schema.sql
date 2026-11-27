@@ -129,8 +129,6 @@ create policy "quiz_attempts_insert_own" on public.quiz_attempts
 
 create policy "certificates_select_own" on public.certificates
   for select to authenticated using (auth.uid() = user_id);
-create policy "certificates_insert_own" on public.certificates
-  for insert to authenticated with check (auth.uid() = user_id);
 
 -- No client-side write policies are provided for course authoring, vocabulary review,
 -- certificate issuance, or moderation. These require trusted admin/server workflows.
